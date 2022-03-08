@@ -43,3 +43,6 @@ document.getElementById('click-me').addEventListener('click', function(){
 })
 
 // see next task event handler
+document.getElementById('next-task').addEventListener('click', function(){
+    window.location.href = 'shopping-cart.html';
+})
