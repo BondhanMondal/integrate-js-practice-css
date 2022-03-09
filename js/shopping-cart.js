@@ -1,4 +1,18 @@
+function updateProductNumber(product, price, isIncreasing){
+    const productInput = document.getElementById(product + '-number');
+    let productNumber = productInput.value;
+    if(isIncreasing == true){
+        productNumber = parseInt(productNumber) + 1;
+    }
+    else if(productNumber > 0){
+            productNumber = parseInt(productNumber) - 1;
+    }
+    productInput.value = productNumber;
 
+    //update total
+    const productTotal = document.getElementById(product + '-total');
+    productTotal.innerText = parseInt(productNumber) * price;
+}
 
 
 
@@ -6,27 +20,22 @@
 
 //phone incerase 
 document.getElementById('phone-plus').addEventListener('click', function(){
-    const phoneNumberInput = document.getElementById('phone-number');
-    let phoneNumberValue = parseInt(phoneNumberInput.value);
-    phoneNumberValue = phoneNumberValue + 1;
-    phoneNumberInput.value = phoneNumberValue;
-//updating phone total
-    const phoneTotalField = document.getElementById('phone-total');
-    //const phoneTotalValue = parseInt(phoneTotalField.innerText);
-    //const phoneTotal = phoneNumberValue * 1219;
-    phoneTotalField.innerText = phoneNumberValue * 1219;
+    updateProductNumber('phone', 1219, true)
 
 })
 
 //phone decrese
 document.getElementById('phone-minus').addEventListener('click', function(){
-    const phoneNumberInput = document.getElementById('phone-number');
-    let phoneNumberValue = parseInt(phoneNumberInput.value);
-    if(phoneNumberValue > 0){
-        phoneNumberValue = phoneNumberValue - 1;
-        phoneNumberInput.value = phoneNumberValue;
-    }
-    const phoneTotalField = document.getElementById('phone-total');
-    phoneTotalField.innerText = phoneNumberValue * 1219;
+    updateProductNumber('phone', 1219, false)
 
+})
+
+//case increase
+document.getElementById('case-plus').addEventListener('click', function(){
+    updateProductNumber('case', 59, true);
+})
+
+//case decrease
+document.getElementById('case-minus').addEventListener('click', function(){
+    updateProductNumber('case', 59, false);
 })
