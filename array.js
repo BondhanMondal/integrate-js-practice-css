@@ -17,3 +17,11 @@ for(book of books){
     
 }
 console.log(jsBook);
+
+// array sorting
+
+const numbers = [24, 200, 3, 10, 300, 600, 400];
+const sortedNumbers = numbers.sort(function(a, b){
+    return a - b;
+});
+console.log(sortedNumbers);
